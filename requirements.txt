@@ -1,0 +1,24 @@
+# infer_overfit.py 运行依赖（版本对齐推理机）
+# 仅列脚本实际 import 的包；argparse/os/re/typing 为标准库无需安装。
+#
+# 说明：
+#  - 推理机 torch 为 CUDA12.9 本地构建（2.9.1+cu129），pip 直装可能拿不到 +cu129
+#    本地标识；如推理机已就绪，可直接沿用现有环境，本文件仅作依赖声明。
+#  - sglang 与 sgl-kernel / flashinfer 需配套版本，切勿单独升级其一。
+#  - backend=hf 时不需要 sglang，仅需 torch + transformers。
+
+# 推理后端（默认 --backend sglang）
+sglang==0.5.9
+sgl-kernel==0.3.21
+flashinfer-python==0.6.3
+
+# 模型加载 / 分词
+torch==2.9.1
+transformers==5.5.4
+tokenizers==0.22.2
+safetensors==0.7.0
+
+# 数据读写（CSV / XLSX）
+pandas==3.0.1
+numpy==1.26.4
+openpyxl==3.1.5
