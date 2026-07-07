@@ -84,10 +84,6 @@ def parse_task2_output(text: str, options: List[Tuple[str, str]]) -> str:
 
     if not gold:
         fallback = valid[0] if valid else "A"
-        print(
-            f"[infer][warn] task2 no gold parsed, raw={text!r}, "
-            f"valid={valid}, fallback={fallback}"
-        )
         return fallback
     return ",".join(gold)
 
